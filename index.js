@@ -16,6 +16,12 @@ const ENDPOINT_URL = process.env.ENDPOINT_URL;
 
 app.use(express.json());
 
+app.get("/", async (req, res, next) => {
+    return res.status(200).json({
+        status: "Server Ready!"
+    })
+})
+
 app.post("/api/login", tokenVerification, async (req, res) => {
     const { username, password, services } = req.body;
 
