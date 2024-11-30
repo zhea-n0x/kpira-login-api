@@ -9,8 +9,6 @@ const { tokenVerification } = require('./middlewares/authentication')
 const app = express();
 const FormData = require('form-data')
 
-const crypto = require('./utils/simpleCrypto');
-
 const PORT = process.env.PORT;
 const ENDPOINT_URL = process.env.ENDPOINT_URL;
 
@@ -21,7 +19,7 @@ app.get("/", async (req, res, next) => {
         status: "Server Ready!"
     })
 })
-
+//
 app.post("/api/login", tokenVerification, async (req, res) => {
     const { username, password, services } = req.body;
 
